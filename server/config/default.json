@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://frosteaf33tmusic:root@cluster0.4xlliwg.mongodb.net/attendanceApp?retryWrites=true&w=majority",
-    "jwtSecret": "mysecrettoken"
+    "mongoURI": "",
+    "jwtSecret": ""
   }
