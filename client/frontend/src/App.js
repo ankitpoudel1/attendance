@@ -18,6 +18,7 @@ function App() {
     setCurrentPage(page)
   }
 
+  console.log("user",user)
   async function fetchUser () {
     const res = await fetch("http://localhost:5000/auth/", {
           credentials: 'include',
