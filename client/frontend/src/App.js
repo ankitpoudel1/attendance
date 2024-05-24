@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
 import './App.css';
 import PostAttendance from './PostAttendance';
 import GetAttendance from './GetAttendance';
@@ -8,7 +8,9 @@ import { UserContext } from './context/UserContext';
 import { PageContext } from './context/PageContext';
 
 function App() {
+  // const UserContext = useContext(UserContext);
   const [user, setUser] = useState(null);
+
   const [userFetched, setUserFetched] = useState(false);
 
   const [currentPage,setCurrentPage] = useState("postAttendance");
@@ -31,10 +33,14 @@ function App() {
     if (res.status==200){
       const data = await res.json();
       if (data){
-          if (!data.errors) setUser(data);
+          if (!data.errors) 
+            {
+              setUser(data);
+            }
       }
     }
     else {
+
       console.log(res)
     }
 
@@ -53,6 +59,21 @@ function App() {
   
   return (
     <>
+    {user ? <>
+      Welcome 
+      {/* {JSON.stringify(user)} */}
+      &nbsp;{user.name}
+    </>:
+    <>
+      <a
+      href="#"
+      onClick={ ()=>{
+        changePage('loginPage')
+      }} 
+      > 
+        Login
+        </a>
+    </>}
     <UserContext.Provider value={{user,setUser,userFetched,setUserFetched}}>
     <PageContext.Provider value={{currentPage,setCurrentPage,isLoggedIn,setIsLoggedIn}}>
     <div className="p-2"> 

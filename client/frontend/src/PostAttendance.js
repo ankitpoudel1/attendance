@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { UserContext } from './context/UserContext';
 import './App.css';
 
 
 function PostAttendance() {
+    const userContext = useContext(UserContext);
+
+  
   const [employeeId, setEmployeeId] = useState('');
   const [type, setType] = useState('checkIn');
   const [location,setLocation] = useState('office');
@@ -54,56 +58,64 @@ function PostAttendance() {
       });
   }
 
+
+
   return (
     <>
-        <div className="card">
-            <div className="card-body">
-            <div className="card-header">
-            Attendance
+        {userContext.user ? <>
+          <div className="card">
+                <div className="card-body">
+                  <div className="card-header">
+                  Attendance
+                  </div>
+                  <label>
+                  Employee ID:
+                  <input type="text" value={employeeId} onChange={handleEmployeeIdChange} className="form-control"/>
+                  </label>
+                  <br/>
+                  <br/>
+
+                  <label>
+                  Work From:
+                  <select value={location} onChange={handleLocationChange} className="form-control">
+                    <option value="office">Office</option>
+                    <option value="remote">Remote</option>
+                  </select>
+                  </label>
+
+                  <br/>
+                  <br/>
+                  <label>
+                  Checkin/Checkout:
+                  <select value={type} onChange={handleTypeChange} className="form-control">
+                    <option value="checkIn">Check In</option>
+                    <option value="checkOut">Check Out</option>
+                  </select>
+                  </label>
+                  <br/>
+                  <br/>
+
+
+                  <br></br>
+                  <label>
+                  Remarks :
+                  <input type="text" value={remarks} onChange={handleRemarksChange} className="form-control"/>
+                  </label>
+                  <br/>
+                  <br/>
+
+                  <button onClick={handleSubmit} className='btn btn-primary'>Submit</button>
+                  <div>{successMessage}</div>
+
+
+                      </div>
+
             </div>
-      <label>
-        Employee ID:
-        <input type="text" value={employeeId} onChange={handleEmployeeIdChange} className="form-control"/>
-      </label>
-      <br/>
-      <br/>
-
-      <label>
-        Work From:
-        <select value={location} onChange={handleLocationChange} className="form-control">
-          <option value="office">Office</option>
-          <option value="remote">Remote</option>
-        </select>
-      </label>
-
-      <br/>
-      <br/>
-      <label>
-        Checkin/Checkout:
-        <select value={type} onChange={handleTypeChange} className="form-control">
-          <option value="checkIn">Check In</option>
-          <option value="checkOut">Check Out</option>
-        </select>
-      </label>
-      <br/>
-      <br/>
+        </> :
+        <>
      
-
-      <br></br>
-      <label>
-        Remarks :
-        <input type="text" value={remarks} onChange={handleRemarksChange} className="form-control"/>
-      </label>
-      <br/>
-      <br/>
-
-      <button onClick={handleSubmit} className='btn btn-primary'>Submit</button>
-      <div>{successMessage}</div>
-
-      
-      </div>
-
-    </div>
+        </>}
+   
 
    
    
