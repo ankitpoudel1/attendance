@@ -46,6 +46,7 @@ router.post(
     body("password", "Password is required").exists(),
   ],
   async (req, res) => {
+    console.log("entered post login route")
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -85,7 +86,12 @@ router.post(
           res.cookie("jwtoken", token, {
             expires: new Date(Date.now() + 25892000000),
             httpOnly: true,
+            secure: false,
+            // signed: true,
+            sameSite: "None", 
           });
+
+          console.log("cookie set",token)
 
           res.json({ message: "Logged in Successfully" });
         }

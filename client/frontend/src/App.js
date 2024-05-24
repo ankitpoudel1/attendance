@@ -18,26 +18,29 @@ function App() {
     setCurrentPage(page)
   }
 
-  // async function fetchUser () {
-  //   const res = await fetch("http://localhost:5000/auth/", {
-  //         credentials: 'include',
-  //         method: 'GET', 
-  //         headers: {
-  //             'Content-Type': 'application/json',
-  //         }
-  //     });
+  async function fetchUser () {
+    const res = await fetch("http://localhost:5000/auth/", {
+          credentials: 'include',
+          method: 'GET', 
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      });
 
-  //   if (res.status==200){
-  //     const data = await res.json();
-  //     if (data){
-  //         if (!data.errors) setUser(data);
-  //     }
-  //   }
+    if (res.status==200){
+      const data = await res.json();
+      if (data){
+          if (!data.errors) setUser(data);
+      }
+    }
+    else {
+      console.log(res)
+    }
 
-  //   setUserFetched(true);
+    setUserFetched(true);
 
  
-  // }
+  }
 
 
 

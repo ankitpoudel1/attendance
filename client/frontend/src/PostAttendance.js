@@ -26,7 +26,7 @@ function PostAttendance() {
     setRemarks(e.target.value);
   }
   const handleSubmit = () => {
-    fetch('http://localhost:5000/attendance', {
+    fetch('http://localhost:5000/attendance/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,6 +34,7 @@ function PostAttendance() {
       body: JSON.stringify({ employeeId, recordType:type,location,remarks }),
     }).then(response => {
       if (!response.ok) {
+        console.log(response)
         // console.log("response",response)
         throw new Error('There was an error');
       }

@@ -4,7 +4,8 @@ const cors = require('cors');
 ;
 const app = express();
 
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3000',credentials:true}));
+app.options('*', cors()) 
 
 // require('dotenv').config();
 // console.log("dotenv");
@@ -28,7 +29,7 @@ app.use('/auth', require('./routes/auth'));
 app.use('/create-employee', require('./routes/createEmp'));
 app.use('/attendance', require('./routes/postAttendance'));
 app.use('/get-attendance', require('./routes/getAttendance'));
-
+// app.use('/dashboard', require('./routes/dashboard'));
 // app.use('/api/auth', require('./routes/api/auth'));
 
 

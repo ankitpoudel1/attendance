@@ -19,6 +19,8 @@ const Login = () =>{
 
         const requestOptions = {
             method: 'POST',
+            // withCredentials: true,
+            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
         };
@@ -27,7 +29,10 @@ const Login = () =>{
             .then(data => {
                 console.log('data',data);
                 // setIsLoggedIn(true);
-            } );
+            } ).catch((error) => {
+                console.log("login error",error)
+                // alert(error);
+              });
     };
 
     return (
