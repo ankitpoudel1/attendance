@@ -88,7 +88,7 @@ router.post(
             httpOnly: true,
             secure: false,
             // signed: true,
-            sameSite: "None", 
+            // sameSite: "None", 
           });
 
           console.log("cookie set",token)

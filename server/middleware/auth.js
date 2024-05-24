@@ -5,7 +5,7 @@ module.exports = async function (req, res, next) {
   // Get token from header
   // const token = req.header('x-auth-token');
 
-  console.log("req dump",req.cookies);
+  console.log("req dump",req.cookies.jwtoken);
   const token = req.cookies.jwtoken;
 
   // Check if not token

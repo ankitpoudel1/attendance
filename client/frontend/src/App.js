@@ -44,11 +44,11 @@ function App() {
 
 
 
-  // useEffect(() => {
-  //     if (!userFetched) {
-  //       fetchUser();
-  //     }
-  // },[userFetched])
+  useEffect(() => {
+      if (!userFetched) {
+        fetchUser();
+      }
+  },[userFetched])
   
   return (
     <>
