@@ -79,6 +79,10 @@ function App() {
     <PageContext.Provider value={{currentPage,setCurrentPage,isLoggedIn,setIsLoggedIn}}>
     <div className="p-2"> 
     {userFetched}
+   
+   
+    {user ? 
+    <>
     <div className="jumbotron">
       <h4>  Attendance System </h4>
     </div>
@@ -127,6 +131,10 @@ function App() {
 
 
     </div>
+
+      </>: <>
+      </>}
+
     <br></br>
      
      {(currentPage=="postAttendance") && <PostAttendance /> }
