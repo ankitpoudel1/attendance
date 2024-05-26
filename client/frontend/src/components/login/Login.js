@@ -39,33 +39,47 @@ const Login = () =>{
         <>
         <div className="container">
             <div className="text-center">
-            Employee Id :
-            <input
-            type="text"
-            name="empId"
-            className="form-control"
-            value={empId}
-            onChange={(e)=>{
-                setEmpId(e.target.value);
-            }}
-            />
-            <br />
-            Password : 
-            <input 
-            type="password"
-            name="password"
-            className="form-control"
-            value={password}
-            onChange={(e)=>{
-                setPassword(e.target.value);
-            }}
-            />
-            <br />
-            <input
-            type="submit"
-            value="submit"
-            onClick={handleSubmit}
-            />
+            <div class="card custom-card">
+                <div class="card-body">
+                <h5 class="card-title">Login</h5>
+                    <p class="card-text">
+                        <div>
+                            <div>
+                                Employee Id :
+                                <input
+                                type="text"
+                                name="empId"
+                                className="form-control"
+                                value={empId}
+                                onChange={(e)=>{
+                                    setEmpId(e.target.value);
+                                }}
+                                />
+                            </div>
+                            <br />
+                            <div>
+                                Password : 
+                                <input 
+                                type="password"
+                                name="password"
+                                className="form-control"
+                                value={password}
+                                onChange={(e)=>{
+                                    setPassword(e.target.value);
+                                }}
+                                />
+                            </div>
+                            <br />
+                        <input
+                        type="submit"
+                        value="submit"
+                        onClick={handleSubmit}
+                        />
+                        </div>
+                    </p>
+                </div>
+            </div>
+                
             </div>
         </div>
         </>

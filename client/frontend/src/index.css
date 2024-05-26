@@ -18,3 +18,9 @@ code {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
 }
+
+.custom-card {
+  background-color: #f8f9fa; /* Grey background color */
+  border: 1px solid #dee2e6; /* Border color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
