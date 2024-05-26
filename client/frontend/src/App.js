@@ -6,6 +6,7 @@ import Login from './components/login/Login';
 import AttendanceByDate from './AttendanceByDate';
 import { UserContext } from './context/UserContext';
 import { PageContext } from './context/PageContext';
+import PostLeaveRequest from './PostLeaveRequest';
 
 function App() {
   // const UserContext = useContext(UserContext);
@@ -102,6 +103,17 @@ function App() {
       > 
         By date
         </a>
+      &nbsp;
+      &nbsp;      
+        <a 
+        className={(currentPage!="postLeave")? "btn btn-outline-dark" : "btn btn-dark"}
+      href="#"
+      onClick={ ()=>{
+        changePage('postLeave')
+      }} 
+      > 
+        Post Leave
+        </a>
         &nbsp;
         <a
        className={(currentPage!="loginPage")? "btn btn-outline-dark ml-4" : "btn btn-dark"}
@@ -121,6 +133,7 @@ function App() {
      {(currentPage=="getAttendance") && <GetAttendance /> }
      {(currentPage == "loginPage") && <Login />}
      {(currentPage == "attendanceByDate") && <AttendanceByDate />}
+     {(currentPage == "postLeave") && <PostLeaveRequest />}
      
 
      {/* { currentPage == "postAttendance" ? <PostAttendance /> :<GetAttendance /> } */}

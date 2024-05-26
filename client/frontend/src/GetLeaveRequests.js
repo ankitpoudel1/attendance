@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
 function GetLeaveRequests() {
-  const [employeeId, setEmployeeId] = useState('');
+  const userContext = useContext(UserContext);
+
+  const [employeeId, setEmployeeId] = useState(userContext.user ? userContext.user.employeeId : '');
+  
   const [attendanceData, setAttendanceData] = useState([]);
 
   const handleEmployeeIdChange = (e) => {
@@ -10,7 +13,7 @@ function GetLeaveRequests() {
 
   const fetchData = () => {
     // Replace 'http://localhost:5000' with the actual server URL
-    const serverURL = 'http://localhost:5000/get-attendance/';
+    const serverURL = 'http://localhost:5000/leave-request/';
 
     fetch(`${serverURL}${employeeId}`)
       .then((response) =>{
@@ -49,18 +52,10 @@ function formatTime(dateVar) {
     <div className="card">
         <div className="card-body">
             <div className="card-header">
-      <h1>Employee Attendance</h1>
+      <h1>Employee Leave Request</h1>
         </div>
-      <label>
-        Employee ID:
-        <input
-          type="text"
-          value={employeeId}
-          onChange={handleEmployeeIdChange}
-          className="form-control"
-        />
-      </label>
-     &nbsp; <button onClick={fetchData} className="btn btn-primary">Fetch Attendance</button>
+      
+     &nbsp; <button onClick={fetchData} className="btn btn-primary">Fetch Leave Requests</button>
       </div>
     </div>
       <div>
@@ -113,4 +108,4 @@ function formatTime(dateVar) {
   );
 }
 
-export default GetAttendance;
+export default GetLeaveRequests;
