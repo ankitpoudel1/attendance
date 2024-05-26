@@ -71,8 +71,9 @@ const Login = () =>{
                             </div>
                             <br />
                         <input
+                        className="btn btn-primary"
                         type="submit"
-                        value="submit"
+                        value="Login"
                         onClick={handleSubmit}
                         />
                         </div>
