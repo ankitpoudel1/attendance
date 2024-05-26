@@ -7,7 +7,7 @@ function PostAttendance() {
     const userContext = useContext(UserContext);
 
   
-  const [employeeId, setEmployeeId] = useState('');
+  const [employeeId, setEmployeeId] = useState(userContext.user ? userContext.user.employeeId : '');
   const [type, setType] = useState('checkIn');
   const [location,setLocation] = useState('office');
   const [remarks,setRemarks] = useState('');
@@ -68,11 +68,11 @@ function PostAttendance() {
                   <div className="card-header">
                   Attendance
                   </div>
-                  <label>
+                  {/* <label>
                   Employee ID:
                   <input type="text" value={employeeId} onChange={handleEmployeeIdChange} className="form-control"/>
                   </label>
-                  <br/>
+                  <br/> */}
                   <br/>
 
                   <label>
