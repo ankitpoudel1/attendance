@@ -37,6 +37,8 @@ const Login = () =>{
 
     return (
         <>
+        <div className="container">
+            <div className="text-center">
             Employee Id :
             <input
             type="text"
@@ -64,6 +66,8 @@ const Login = () =>{
             value="submit"
             onClick={handleSubmit}
             />
+            </div>
+        </div>
         </>
     )
 };
