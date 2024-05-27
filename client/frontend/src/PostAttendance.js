@@ -4,7 +4,7 @@ import './App.css';
 
 
 function PostAttendance() {
-    const userContext = useContext(UserContext);
+  const userContext = useContext(UserContext);
 
   
   const [employeeId, setEmployeeId] = useState(userContext.user ? userContext.user.employeeId : '');
@@ -62,8 +62,9 @@ function PostAttendance() {
 
   return (
     <>
-    <div className="horizontal-container">
-        {userContext.user ? <>
+    {/* <div className="horizontal-left-aligned-container"> */}
+    <div className="moving-div">
+    {userContext.user ? <>
           <div className="card" 
           // style={{width:50+"%"}}
           >

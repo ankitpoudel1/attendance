@@ -57,3 +57,25 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.horizontal-left-aligned-container {
+  display: flex;
+  justify-content: left;
+}
+
+.moving-div {
+  height: 50%;
+  position: absolute;
+  top: 50px;
+  left: 50;
+  animation: moveRight 1s forwards;
+}
+
+@keyframes moveRight {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100vw; /* Move out of the screen to the right */
+  }
+}

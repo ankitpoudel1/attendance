@@ -7,7 +7,8 @@ connectDB();
 const User = require("./models/User");
 
 async function createAdmin () {
-  const password="admin@32#";
+  // const password="admin@32#";
+  const password="admin";
   const user = new User({
     name: "superadmin",
     employeeId: "000",

@@ -61,9 +61,9 @@ function App() {
   return (
     <>
     {user ? <>
-      Welcome 
-      {/* {JSON.stringify(user)} */}
+      &nbsp; Welcome 
       &nbsp;{user.name}
+      {/* &nbsp;{user.name} */}
     </>:
     <>
       <a
@@ -90,14 +90,19 @@ function App() {
       <a href="#" onClick={()=>{
         changePage("postAttendance")
       }}
-      className={(currentPage!="postAttendance")? "btn btn-outline-dark" : "btn btn-dark"}> Post Attendance </a>
-      &nbsp;
+      className={(currentPage!="postAttendance")? "btn btn-outline-dark" : "btn btn-primary"}> Post Attendance </a>
+     
+      {user.role=="admin" &&
+      <>&nbsp;
       &nbsp; <a href="#" onClick={()=>{
         changePage("getAttendance")
       }}
       className={(currentPage!="getAttendance")? "btn btn-outline-dark" : "btn btn-dark"}>Get Attendance</a>
       &nbsp;
-      &nbsp;      
+      &nbsp; </>}      
+     
+     
+     
         <a 
         className={(currentPage!="attendanceByDate")? "btn btn-outline-dark" : "btn btn-dark"}
       href="#"
@@ -109,6 +114,7 @@ function App() {
         </a>
       &nbsp;
       &nbsp;      
+
         <a 
         className={(currentPage!="postLeave")? "btn btn-outline-dark" : "btn btn-dark"}
       href="#"
@@ -126,6 +132,8 @@ function App() {
       </>}
 
     <br></br>
+
+
      
      {(currentPage=="postAttendance") && <PostAttendance /> }
      {(currentPage=="getAttendance") && <GetAttendance /> }
