@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
+import {PageContext} from "../../context/PageContext";
 
 const Login = () =>{
     const userContext = useContext(UserContext);
-
+    const pageContext = useContext(PageContext);
 
     const [empId, setEmpId] = useState("");
     const [password, setPassword] = useState("");
@@ -32,6 +33,7 @@ const Login = () =>{
             .then(data => {
                 // console.log('data',data);
                 userContext.setUser(data);
+                pageContext.setCurrentPage("postAttendance");
                 // setIsLoggedIn(true);
             } ).catch((error) => {
                 console.log("login error",error)

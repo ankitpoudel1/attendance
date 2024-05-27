@@ -94,8 +94,9 @@ router.post(
           });
 
           console.log("cookie set",token)
-          const user = await User.findById(req.user.id).select("-password");
-          res.json(user);
+          // let user = await User.findOne({ employeeId }); //find a way to remove password index from array
+          const user2Send = await User.findById(user.id).select("-password");
+          res.json(user2Send);
           // res.json({ message: "Logged in Successfully" });
         }
       );
