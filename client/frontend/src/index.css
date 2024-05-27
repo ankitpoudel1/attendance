@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #b283ed; */
+  background-color: #000;
+  color: #fff
 }
 
 code {
@@ -19,8 +22,38 @@ code {
   align-items: center; /* Center vertically */
 }
 
+.card{
+  background-color: #ddd6e8;
+  border: 1px solid #b283ed;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  /* transition: background-color 0.3s ease; */
+}
+
+.card .card-header {
+  background-color: #ddd6e8;
+}
+
+.btn-primary{
+  background-color: #9754ed;
+} 
+.btn-primary:hover {
+  background-color: #8623ee;
+}
+
 .custom-card {
-  background-color: #f8f9fa; /* Grey background color */
+  background-color: #ddd6e8; /* Grey background color */
   border: 1px solid #dee2e6; /* Border color */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+
+/* post attendance */
+
+.post-attendance-card-container{
+  width:40%;
+}
+
+.horizontal-container {
+  display: flex;
+  justify-content: center;
 }

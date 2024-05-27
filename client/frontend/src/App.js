@@ -84,7 +84,7 @@ function App() {
     {user ? 
     <>
     <div className="jumbotron">
-      <h4>  Attendance System </h4>
+      <h4>  Zero By Zero Sys. </h4>
     </div>
     <div>
       <a href="#" onClick={()=>{
@@ -117,16 +117,6 @@ function App() {
       }} 
       > 
         Post Leave
-        </a>
-        &nbsp;
-        <a
-       className={(currentPage!="loginPage")? "btn btn-outline-dark ml-4" : "btn btn-dark"}
-      href="#"
-      onClick={ ()=>{
-        changePage('loginPage')
-      }} 
-      > 
-        Login
         </a>
 
 

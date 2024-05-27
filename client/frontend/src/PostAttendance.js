@@ -62,8 +62,11 @@ function PostAttendance() {
 
   return (
     <>
+    <div className="horizontal-container">
         {userContext.user ? <>
-          <div className="card">
+          <div className="card" 
+          // style={{width:50+"%"}}
+          >
                 <div className="card-body">
                   <div className="card-header">
                   Attendance
@@ -93,7 +96,6 @@ function PostAttendance() {
                   </select>
                   </label>
                   <br/>
-                  <br/>
 
 
                   <br></br>
@@ -118,7 +120,7 @@ function PostAttendance() {
    
 
    
-   
+    </div>
     </>
   );
 }
