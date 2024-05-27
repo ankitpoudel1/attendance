@@ -29,6 +29,8 @@ router.use(express.static(__dirname + "./public/"));
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
+    // console.log("user dump",req.user)
+    // const user = req.user;
     res.json(user);
   } catch (error) {
     console.error(error.message);
@@ -80,7 +82,7 @@ router.post(
         payload,
         config.get("jwtSecret"),
         { expiresIn: 360000 },
-        (err, token) => {
+        async (err, token) => {
           if (err) throw err;
 
           res.cookie("jwtoken", token, {
@@ -92,8 +94,9 @@ router.post(
           });
 
           console.log("cookie set",token)
-
-          res.json({ message: "Logged in Successfully" });
+          const user = await User.findById(req.user.id).select("-password");
+          res.json(user);
+          // res.json({ message: "Logged in Successfully" });
         }
       );
     } catch (error) {

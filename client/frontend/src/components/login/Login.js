@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../context/UserContext";
 
 const Login = () =>{
+    const userContext = useContext(UserContext);
+
 
     const [empId, setEmpId] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +30,8 @@ const Login = () =>{
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log('data',data);
+                // console.log('data',data);
+                userContext.setUser(data);
                 // setIsLoggedIn(true);
             } ).catch((error) => {
                 console.log("login error",error)
